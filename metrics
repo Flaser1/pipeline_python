@@ -1,6 +1,6 @@
 
 
-from models import Customer, Order, OrderBatch
+from models import Customer, Order
 
 def build_summary_country(customers: list[Customer], orders: list[Order]) -> dict:
     countries_summary = {}
