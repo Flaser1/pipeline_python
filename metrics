@@ -45,8 +45,11 @@ def build_summary_country(customers: list[Customer], orders: list[Order]) -> dic
 def build_summary_status(customers: list[Customer], orders: list[Order]) -> dict:
     status_summaries = {}
     status_customers = {}
+    customers_ids = {customer.customer_id for customer in customers}
     for order in orders:
         status = order.status
+        if order.customer_id not in customers_ids:
+            continue
         if status not in status_summaries:
             status_summaries[status] = {
                 "customers_count": 0,
