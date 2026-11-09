@@ -16,6 +16,8 @@ def load_config_customers():
         properties = dotenv_values(stream=file, interpolate=False)
         input_path = properties.get("INPUT_PATH_CUSTOMERS")
         output_dir = properties.get("OUTPUT_DIR_CUSTOMERS")
+    if input_path is None or output_dir is None:
+        raise TypeError("input or output parameter is None")
     return PipelineConfig(
         base_dir / input_path,
         base_dir / output_dir
@@ -28,6 +30,8 @@ def load_config_orders():
         properties = dotenv_values(stream=file, interpolate=False)
         input_path = properties.get("INPUT_PATH_ORDERS")
         output_dir = properties.get("OUTPUT_DIR_ORDERS")
+    if input_path is None or output_dir is None:
+        raise TypeError("input or output parameter is None")
     return PipelineConfig(
         base_dir / input_path,
         base_dir / output_dir
