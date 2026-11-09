@@ -14,6 +14,7 @@ def normalize_orders(orders: list[dict]) -> tuple[list[Order], list[dict]]:
                 **order,
                 "reason": f"amount is invalid: {order["amount"]!r}"
             })
+            continue
         clean_order = {
             "order_id": int(order["order_id"]),
             "customer_id": int(order["customer_id"]),
